@@ -3,8 +3,8 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  
-ROOT_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", ".."))
-DB_PATH = os.path.join(ROOT_DIR, "backend", "API", "instance", "banco.db")
+ROOT_DIR = os.path.abspath(os.path.join(BASE_DIR, ".."))
+DB_PATH = os.path.join(ROOT_DIR, "API", "instance", "banco.db")
 
 db = create_engine(f'sqlite:///{DB_PATH}')
 Session = sessionmaker(bind=db)
