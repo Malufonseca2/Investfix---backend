@@ -7,7 +7,18 @@ import google.generativeai as genai
 from datetime import date
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000", "http://localhost:3001"])
+CORS(app, resources={
+    r"/*": {
+        "origins": [
+            "https://malufonseca2.github.io",
+            "http://localhost:3000",
+            "http://localhost:3001",
+        ],
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type"]
+    }
+})
+
 
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 hoje = date.today()
